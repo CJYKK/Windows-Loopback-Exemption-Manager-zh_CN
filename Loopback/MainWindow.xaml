@@ -8,28 +8,28 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center">
-            <Label VerticalContentAlignment="Center" Margin="10,0,0,0">Filter the Apps:</Label>
+            <Label VerticalContentAlignment="Center" Margin="10,0,0,0">过滤应用程序：</Label>
             <TextBox Name="txtFilter" Grid.Row="0" Width="185" HorizontalAlignment="Left" Height="30" KeyUp="txtFilter_KeyUp" Margin="0,5" VerticalContentAlignment="Center"></TextBox>
-            <CheckBox Name="cbLoopback" Click="cbLoopback_Click" VerticalContentAlignment="Center" Margin="10,0">Enabled</CheckBox>
-            <Button Name="btnSave" Grid.Row="0" Width="100" Height="30" Click="btnSave_Click" Margin="10,0" >Save</Button>
-            <Button Name="btnRefresh" Grid.Row="0" Width="100" Height="30" Click="btnRefresh_Click" Margin="10,0" >Refresh</Button>
+            <CheckBox Name="cbLoopback" Click="cbLoopback_Click" VerticalContentAlignment="Center" Margin="10,0">已解除</CheckBox>
+            <Button Name="btnSave" Grid.Row="0" Width="100" Height="30" Click="btnSave_Click" Margin="10,0" >保存</Button>
+            <Button Name="btnRefresh" Grid.Row="0" Width="100" Height="30" Click="btnRefresh_Click" Margin="10,0" >刷新</Button>
 
         </StackPanel>
         <DataGrid x:Name="dgLoopback" AutoGenerateColumns="False" Grid.Row="1">
             <DataGrid.Columns>
-                <DataGridTemplateColumn Header="Exempt" Width="60" IsReadOnly="True">
+                <DataGridTemplateColumn Header="解除" Width="60" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <CheckBox Name="dgcbLoop" IsChecked="{Binding LoopUtil, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Click="dgcbLoop_Click" HorizontalAlignment="Center"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="App Name" Binding="{Binding Path=displayName}" />
+                <DataGridTextColumn Header="应用名称" Binding="{Binding Path=displayName}" />
             </DataGrid.Columns>
         </DataGrid>
         <StatusBar x:Name="SBar" Grid.Column="0" Grid.Row="3" VerticalAlignment="Bottom" Background="LightBlue" DockPanel.Dock="Bottom" Height="30">
             <StatusBarItem>
-                <TextBlock FontWeight="Bold"><Run Text="Status: "/></TextBlock>
+                <TextBlock FontWeight="Bold"><Run Text="状态："/></TextBlock>
             </StatusBarItem>
             <StatusBarItem Grid.Column="1">
                 <TextBlock Name="txtStatus"></TextBlock>

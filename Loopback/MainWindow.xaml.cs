@@ -40,17 +40,17 @@ namespace Loopback
         {
             if (!isDirty) 
             {
-                Log("nothing to save");
+                Log("没有需要保存的");
                 return; 
             }
 
             isDirty = false;
             if (_loop.SaveLoopbackState())
             { 
-                Log(" saved loopback excemptions");
+                Log("已保存回环解除列表");
             }
             else
-            { Log(" ERROR SAVING"); }
+            { Log("保存错误"); }
         }
 
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
@@ -60,14 +60,14 @@ namespace Loopback
             txtFilter.Text = "";
             cbLoopback.IsChecked = false;
             isDirty = false;
-            Log("refreshed");
+            Log("已刷新");
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             if (isDirty)
             {
-                MessageBoxResult resp=System.Windows.MessageBox.Show("You have not saved your changes. Are you sure you want to exit ?","Loopback Manager", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                MessageBoxResult resp=System.Windows.MessageBox.Show("有更改尚未保存。确定要退出吗？","Loopback Manager", MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (resp==MessageBoxResult.No)
                 {
                     e.Cancel = true;
